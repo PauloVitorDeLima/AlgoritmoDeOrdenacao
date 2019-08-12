@@ -1,0 +1,15 @@
+C:\Users\paulo.vitor.de.lima\source\repos\PauloVitorDeLima\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\bin\Debug\AlgoritmosDeOrdenacao.exe.config
+C:\Users\paulo.vitor.de.lima\source\repos\PauloVitorDeLima\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\bin\Debug\AlgoritmosDeOrdenacao.exe
+C:\Users\paulo.vitor.de.lima\source\repos\PauloVitorDeLima\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\bin\Debug\AlgoritmosDeOrdenacao.pdb
+C:\Users\paulo.vitor.de.lima\source\repos\PauloVitorDeLima\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\obj\Debug\AlgoritmosDeOrdenacao.csprojAssemblyReference.cache
+C:\Users\paulo.vitor.de.lima\source\repos\PauloVitorDeLima\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\obj\Debug\AlgoritmosDeOrdenacao.MainMenu.resources
+C:\Users\paulo.vitor.de.lima\source\repos\PauloVitorDeLima\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\obj\Debug\AlgoritmosDeOrdenacao.Properties.Resources.resources
+C:\Users\paulo.vitor.de.lima\source\repos\PauloVitorDeLima\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\obj\Debug\AlgoritmosDeOrdenacao.csproj.GenerateResource.cache
+C:\Users\paulo.vitor.de.lima\source\repos\PauloVitorDeLima\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\obj\Debug\AlgoritmosDeOrdenacao.csproj.CoreCompileInputs.cache
+C:\Users\paulo.vitor.de.lima\source\repos\PauloVitorDeLima\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\obj\Debug\AlgoritmosDeOrdenacao.exe
+C:\Users\paulo.vitor.de.lima\source\repos\PauloVitorDeLima\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\obj\Debug\AlgoritmosDeOrdenacao.pdb
+C:\Users\paulo.vitor.de.lima\source\repos\PauloVitorDeLima\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\obj\Debug\AlgoritmosDeOrdenacao.View.BubbleSort.resources
+C:\Users\paulo.vitor.de.lima\source\repos\PauloVitorDeLima\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\obj\Debug\AlgoritmosDeOrdenacao.View.InsertionSort.resources
+C:\Users\paulo.vitor.de.lima\source\repos\PauloVitorDeLima\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\obj\Debug\AlgoritmosDeOrdenacao.View.MergeSort.resources
+C:\Users\paulo.vitor.de.lima\source\repos\PauloVitorDeLima\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\obj\Debug\AlgoritmosDeOrdenacao.View.QuickSort.resources
+C:\Users\paulo.vitor.de.lima\source\repos\PauloVitorDeLima\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\AlgoritmosDeOrdenacao\obj\Debug\AlgoritmosDeOrdenacao.View.SelectionSort.resources
