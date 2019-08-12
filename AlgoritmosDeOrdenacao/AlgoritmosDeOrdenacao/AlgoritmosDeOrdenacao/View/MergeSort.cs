@@ -24,12 +24,13 @@ namespace AlgoritmosDeOrdenacao.View
             valor = OrdenaMergeSort(valor, valor.Length);
 
             //Apresenta os valores organizados no RichTxtBx
-            for (int i = 0; i < valor.Length; i++)
+
+            
+                for (int i = 0; i < valor.Length; i++)
             {
                 RichTxtBxValores.AppendText(valor[i] + "\n");
             }
-
-
+            
             //adicionar para sobrescrever arquivo
             //EscreverArquivo(caminho, valor);                                                 //******* ADICIONAR ESSA LINHA PARA ESCREVER NO ARQUIVO OS VALORES
 
@@ -38,7 +39,7 @@ namespace AlgoritmosDeOrdenacao.View
         //Metodo para ordernar com Merge
         public int[] OrdenaMergeSort(int[] valor, int n)
         {
-            int Movimentos = 0;
+            long Movimentos = 0;
             DateTime a = DateTime.Now;
 
             int TamAtual;

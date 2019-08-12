@@ -28,13 +28,14 @@ namespace AlgoritmosDeOrdenacao.View
             valor = OrdenaBubbleSort(valor, valor.Length);
 
             //Apresenta os valores organizados no RichTxtBx
+            
             for (int i = 0; i < valor.Length; i++)
             {
                 RichTxtBxValores.AppendText(valor[i] + "\n");
             }
-
+            
             //adicionar para sobrescrever arquivo
-            //EscreverArquivo(caminho, valor);                                                  //******* ADICIONAR ESSA LINHA PARA ESCREVER NO ARQUIVO OS VALORES
+           //EscreverArquivo(caminho, valor);                                                  //******* ADICIONAR ESSA LINHA PARA ESCREVER NO ARQUIVO OS VALORES
         }
 
         //Metodo para ordernar com Bubble
@@ -44,7 +45,7 @@ namespace AlgoritmosDeOrdenacao.View
             DateTime a = DateTime.Now;
 
             //cria variavel para capturar quantidade de movimentos
-            int Movimentos = 0;
+            long Movimentos = 0;
 
             //para o tamanho for maior ou igual a 1
             for (int j = n; j >= 1; j--)
