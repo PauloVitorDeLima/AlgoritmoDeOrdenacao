@@ -35,9 +35,7 @@ namespace AlgoritmosDeOrdenacao.View
             //EscreverArquivo(caminho, valor);                                                  //******* ADICIONAR ESSA LINHA PARA ESCREVER NO ARQUIVO OS VALORES
         }
 
-
-         
-
+        /*
 
 
 
@@ -45,6 +43,9 @@ namespace AlgoritmosDeOrdenacao.View
 
 
 
+
+
+        */
 
 
         //Metodo de Escolher Arquivo
