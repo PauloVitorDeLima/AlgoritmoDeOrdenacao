@@ -42,9 +42,9 @@ namespace AlgoritmosDeOrdenacao.View
         {
             //Pega data de agora
             DateTime a = DateTime.Now;
-
+            long comparacoes = 0;
             //cria variavel para capturar quantidade de movimentos
-            int Movimentos = 0;
+            long Movimentos = 0;
 
             //para o tamanho for maior ou igual a 1
             for (int j = n; j >= 1; j--)
@@ -72,6 +72,8 @@ namespace AlgoritmosDeOrdenacao.View
             DateTime b = DateTime.Now;
             //apresenta em messageBox o tempo de duraçao da atividade
             MessageBox.Show("Tempo de execucao: " + b.Subtract(a).TotalSeconds + " Segundos");
+            //Comparacoes realizadas ao total
+            MessageBox.Show("Quantidade de comparações: " + Comparacoes);
             //apresenta em messageBox a quantidade de movimentos realizados
             MessageBox.Show("Ocorreu um total de " + Movimentos + " Movimentos");
             return valor;

@@ -43,7 +43,8 @@ namespace AlgoritmosDeOrdenacao.View
             //Pega data de agora
             DateTime a = DateTime.Now;
             //Cria variavel temporaria, uma Flag e uma para marcar os movimentos
-            int Temp, Flag, Movimentos = 0;
+            int Temp, Flag; 
+            long Movimentos = 0;
             //para o i = 1 for menor que o tamanho do array 
             for (int i = 1; i < n; i++)
             {

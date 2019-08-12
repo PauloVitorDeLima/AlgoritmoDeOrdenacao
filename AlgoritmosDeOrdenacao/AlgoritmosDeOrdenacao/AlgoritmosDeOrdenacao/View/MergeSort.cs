@@ -39,7 +39,7 @@ namespace AlgoritmosDeOrdenacao.View
         //Metodo para ordernar com Merge
         public int[] OrdenaMergeSort(int[] valor, int n)
         {
-            int Movimentos = 0;
+            long Movimentos = 0;
             DateTime a = DateTime.Now;
 
             int TamAtual;
