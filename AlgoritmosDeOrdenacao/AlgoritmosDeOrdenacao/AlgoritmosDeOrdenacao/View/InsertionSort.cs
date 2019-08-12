@@ -13,6 +13,7 @@ namespace AlgoritmosDeOrdenacao.View
 
         private void SelectFile_Click(object sender, EventArgs e)
         { 
+
             
             //Limpa RichTxtBx
             RichTxtBxValores.Clear();

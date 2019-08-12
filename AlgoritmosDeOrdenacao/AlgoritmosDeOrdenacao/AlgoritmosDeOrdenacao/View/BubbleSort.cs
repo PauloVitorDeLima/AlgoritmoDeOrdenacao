@@ -64,6 +64,7 @@ namespace AlgoritmosDeOrdenacao.View
                         Movimentos++;
                     }
 
+
                 }
                 
             }

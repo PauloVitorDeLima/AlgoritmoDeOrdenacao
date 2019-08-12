@@ -44,6 +44,7 @@ namespace AlgoritmosDeOrdenacao.View
 
 
 
+
         //Metodo de Escolher Arquivo
         public String EscolherArquivo()
         {

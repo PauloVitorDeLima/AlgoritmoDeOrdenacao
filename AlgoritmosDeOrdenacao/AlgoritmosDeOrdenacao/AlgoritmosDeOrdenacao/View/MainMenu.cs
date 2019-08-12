@@ -34,6 +34,7 @@ namespace AlgoritmosDeOrdenacao
 
         }
 
+
         private void QuickSort_Click(object sender, EventArgs e)
         {
             QuickSort quick = new QuickSort();
