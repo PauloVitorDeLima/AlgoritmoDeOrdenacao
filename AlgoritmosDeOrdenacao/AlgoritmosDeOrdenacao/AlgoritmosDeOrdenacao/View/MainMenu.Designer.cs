@@ -101,6 +101,7 @@
             this.Controls.Add(this.SelectionSort);
             this.Controls.Add(this.BubbleSort);
             this.Name = "MainMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);
 

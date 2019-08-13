@@ -80,6 +80,7 @@
             this.Controls.Add(this.TxtPath);
             this.Controls.Add(this.SelectFile);
             this.Name = "MergeSort";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MergeSort";
             this.ResumeLayout(false);
             this.PerformLayout();

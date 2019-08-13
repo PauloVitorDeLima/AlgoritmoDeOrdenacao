@@ -80,6 +80,7 @@
             this.Controls.Add(this.TxtPath);
             this.Controls.Add(this.SelectFile);
             this.Name = "BubbleSort";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BubbleSort";
             this.ResumeLayout(false);
             this.PerformLayout();

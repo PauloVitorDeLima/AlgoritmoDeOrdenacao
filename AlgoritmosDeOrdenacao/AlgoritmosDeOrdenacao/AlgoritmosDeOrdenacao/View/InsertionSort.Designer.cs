@@ -80,6 +80,7 @@
             this.Controls.Add(this.TxtPath);
             this.Controls.Add(this.SelectFile);
             this.Name = "InsertionSort";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InsertionSort";
             this.ResumeLayout(false);
             this.PerformLayout();
