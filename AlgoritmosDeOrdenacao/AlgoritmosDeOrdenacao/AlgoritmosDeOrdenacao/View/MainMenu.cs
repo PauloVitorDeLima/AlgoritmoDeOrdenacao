@@ -23,7 +23,8 @@ namespace AlgoritmosDeOrdenacao
 
             BubbleSort bubble = new BubbleSort();
             bubble.Show();
-            Hide(); 
+            Hide();
+
         }
 
         private void SelectionSort_Click(object sender, EventArgs e)

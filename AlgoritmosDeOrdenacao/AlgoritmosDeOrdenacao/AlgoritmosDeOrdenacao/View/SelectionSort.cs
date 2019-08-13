@@ -24,13 +24,12 @@ namespace AlgoritmosDeOrdenacao.View
             
             //valor recebe os dados ja organizados
             valor = OrdenaSelectionSort(valor, valor.Length);                                      //******* ADICIONAR ESSA LINHA VERIFICANDO A MANEIRA DE CRIAR O ALGORITMO
-            
+
             //Apresenta os valores organizados no RichTxtBx
             for (int i = 0; i < valor.Length; i++)
             {
                 RichTxtBxValores.AppendText(valor[i] + "\n");
             }
-
             //chama metodo que sobrescreve o arquivo
             //EscreverArquivo(caminho, valor);                                                 //******* ADICIONAR ESSA LINHA PARA ESCREVER NO ARQUIVO OS VALORES
         }

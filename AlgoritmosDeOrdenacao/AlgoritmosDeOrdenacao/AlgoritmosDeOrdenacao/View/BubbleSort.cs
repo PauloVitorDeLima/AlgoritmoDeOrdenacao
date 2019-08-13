@@ -64,10 +64,7 @@ namespace AlgoritmosDeOrdenacao.View
                         //conta que ocorreu uma movimentacao
                         Movimentos++;
                     }
-
-
                 }
-                
             }
             //Pega data de agora
             DateTime b = DateTime.Now;

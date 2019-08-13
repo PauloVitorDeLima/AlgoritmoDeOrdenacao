@@ -28,9 +28,6 @@ namespace AlgoritmosDeOrdenacao.View
             {
                 RichTxtBxValores.AppendText(valor[i] + "\n");
             }
-
-
-
             //adicionar para sobrescrever arquivo
             //EscreverArquivo(caminho, valor);                                                 //******* ADICIONAR ESSA LINHA PARA ESCREVER NO ARQUIVO OS VALORES
 

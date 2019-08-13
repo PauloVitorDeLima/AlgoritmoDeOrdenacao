@@ -10,7 +10,7 @@ namespace AlgoritmosDeOrdenacao.View
         {
             InitializeComponent();
         }
-
+        long Movimentos = 0;
         private void SelectFile_Click(object sender, EventArgs e)
         {
             //Limpa RichTxtBx
@@ -22,12 +22,19 @@ namespace AlgoritmosDeOrdenacao.View
             //valor recebe os valores contidos no arquivo de texto que será lido
             int[] valor = Array.ConvertAll(LerArquivo(caminho), s => int.Parse(s));
             //cria variavel para capturar quantidade de movimentos
-            long Movimentos = 0;
+            
             //Pega data de agora
             DateTime a = DateTime.Now;
             //valor recebe os dados ja organizados
-            valor = OrdenaQuickSort(valor, 0, valor.Length - 1, a, Movimentos);                                     //******* ADICIONAR ESSA LINHA VERIFICANDO A MANEIRA DE CRIAR O ALGORITMO
-            
+            valor = OrdenaQuickSort(valor, 0, valor.Length - 1);                                     //******* ADICIONAR ESSA LINHA VERIFICANDO A MANEIRA DE CRIAR O ALGORITMO
+
+            //Pega data de agora
+            DateTime b = DateTime.Now;
+            //apresenta em messageBox o tempo de duraçao da atividade
+            MessageBox.Show("Tempo de execucao: " + b.Subtract(a).TotalSeconds + " Segundos");
+            //apresenta em messageBox a quantidade de movimentos realizados
+            MessageBox.Show("Ocorreu um total de " + Movimentos + " Movimentos");
+
             //Apresenta os valores organizados no RichTxtBx
             for (int i = 0; i < valor.Length; i++)
             {
@@ -37,7 +44,7 @@ namespace AlgoritmosDeOrdenacao.View
             //chama metodo que sobrescreve o arquivo
             //EscreverArquivo(caminho, valor);                                                  //******* ADICIONAR ESSA LINHA PARA ESCREVER NO ARQUIVO OS VALORES
         }
-        static int[] OrdenaQuickSort(int[] valor, int primeiro, int ultimo, DateTime a, long movimentos)
+        public int[] OrdenaQuickSort(int[] valor, int primeiro, int ultimo)
         {
             int baixo, alto, meio, pivo, repositorio;
             baixo = primeiro;
@@ -56,29 +63,24 @@ namespace AlgoritmosDeOrdenacao.View
                     repositorio = valor[baixo];
                     valor[baixo++] = valor[alto];
                     valor[alto--] = repositorio;
-                    movimentos++;    
+                    Movimentos++;    
                 }
                 else if (baixo == alto)
                     {
-                        movimentos++;
+                        Movimentos++;
                         baixo++;
                         alto--;
                     }
                 }
                 if (alto > primeiro)
                 {
-                    OrdenaQuickSort(valor, primeiro, alto, a, movimentos);
+                    OrdenaQuickSort(valor, primeiro, alto);
                 }else if (baixo < ultimo)
                 { 
-                    OrdenaQuickSort(valor, baixo, ultimo, a, movimentos);
+                    OrdenaQuickSort(valor, baixo, ultimo);
                 }
                 
-                //Pega data de agora
-                DateTime b = DateTime.Now;
-                //apresenta em messageBox o tempo de duraçao da atividade
-                MessageBox.Show("Tempo de execucao: " + b.Subtract(a).TotalSeconds + " Segundos");
-                //apresenta em messageBox a quantidade de movimentos realizados
-                MessageBox.Show("Ocorreu um total de " + movimentos + " Movimentos");
+                
                 return valor;
         }
         //Metodo de Escolher Arquivo
