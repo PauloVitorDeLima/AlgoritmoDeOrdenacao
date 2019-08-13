@@ -74,7 +74,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(554, 460);
+            this.ClientSize = new System.Drawing.Size(559, 460);
             this.Controls.Add(this.ButtonMenu);
             this.Controls.Add(this.RichTxtBxValores);
             this.Controls.Add(this.TxtPath);

@@ -29,7 +29,7 @@ namespace AlgoritmosDeOrdenacao
 
         private void SelectionSort_Click(object sender, EventArgs e)
         {
-            SelectionSort selection = new SelectionSort();
+            SelectionSort selection = new SelectionSort(); 
             selection.Show();
             Hide();
 

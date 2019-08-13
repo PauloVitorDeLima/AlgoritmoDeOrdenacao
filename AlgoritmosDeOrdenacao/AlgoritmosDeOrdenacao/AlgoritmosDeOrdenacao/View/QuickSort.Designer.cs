@@ -52,7 +52,7 @@
             // 
             // SelectFile
             // 
-            this.SelectFile.Location = new System.Drawing.Point(34, 12);
+            this.SelectFile.Location = new System.Drawing.Point(12, 12);
             this.SelectFile.Name = "SelectFile";
             this.SelectFile.Size = new System.Drawing.Size(148, 44);
             this.SelectFile.TabIndex = 4;
@@ -74,7 +74,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(553, 463);
+            this.ClientSize = new System.Drawing.Size(556, 463);
             this.Controls.Add(this.ButtonMenu);
             this.Controls.Add(this.RichTxtBxValores);
             this.Controls.Add(this.TxtPath);

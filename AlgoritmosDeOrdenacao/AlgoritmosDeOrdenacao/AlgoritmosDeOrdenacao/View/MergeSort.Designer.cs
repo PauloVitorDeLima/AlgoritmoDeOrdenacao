@@ -52,7 +52,7 @@
             // 
             // SelectFile
             // 
-            this.SelectFile.Location = new System.Drawing.Point(34, 12);
+            this.SelectFile.Location = new System.Drawing.Point(12, 12);
             this.SelectFile.Name = "SelectFile";
             this.SelectFile.Size = new System.Drawing.Size(148, 44);
             this.SelectFile.TabIndex = 4;
@@ -62,7 +62,7 @@
             // 
             // ButtonMenu
             // 
-            this.ButtonMenu.Location = new System.Drawing.Point(405, 12);
+            this.ButtonMenu.Location = new System.Drawing.Point(396, 12);
             this.ButtonMenu.Name = "ButtonMenu";
             this.ButtonMenu.Size = new System.Drawing.Size(148, 44);
             this.ButtonMenu.TabIndex = 8;

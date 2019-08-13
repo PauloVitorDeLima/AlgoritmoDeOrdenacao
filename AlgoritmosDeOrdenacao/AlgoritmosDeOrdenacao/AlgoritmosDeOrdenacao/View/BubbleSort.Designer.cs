@@ -36,7 +36,7 @@
             // 
             // SelectFile
             // 
-            this.SelectFile.Location = new System.Drawing.Point(34, 12);
+            this.SelectFile.Location = new System.Drawing.Point(12, 12);
             this.SelectFile.Name = "SelectFile";
             this.SelectFile.Size = new System.Drawing.Size(148, 44);
             this.SelectFile.TabIndex = 0;

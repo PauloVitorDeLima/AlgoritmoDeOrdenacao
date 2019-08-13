@@ -19,7 +19,7 @@ namespace AlgoritmosDeOrdenacao.View
             RichTxtBxValores.Clear();
                
             //caminho recebe o local onde o usuario escolher o arquivo txt
-            String caminho = EscolherArquivo();
+            String caminho = EscolherArquivo(); 
              
             //valor recebe os valores contidos no arquivo de texto que será lido
             int[] valor = Array.ConvertAll(LerArquivo(caminho), s => int.Parse(s));

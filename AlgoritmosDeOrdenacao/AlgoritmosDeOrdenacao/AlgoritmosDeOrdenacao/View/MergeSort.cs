@@ -12,7 +12,7 @@ namespace AlgoritmosDeOrdenacao.View
         }
 
         private void SelectFile_Click(object sender, EventArgs e)
-        {  
+        {   
             //Limpa RichTxtBx
             RichTxtBxValores.Clear();
             //caminho recebe o local onde o usuario escolher o arquivo txt

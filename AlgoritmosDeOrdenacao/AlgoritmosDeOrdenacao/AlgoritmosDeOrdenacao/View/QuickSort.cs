@@ -44,7 +44,7 @@ namespace AlgoritmosDeOrdenacao.View
             //chama metodo que sobrescreve o arquivo
             //EscreverArquivo(caminho, valor);                                                  //******* ADICIONAR ESSA LINHA PARA ESCREVER NO ARQUIVO OS VALORES
         }
-        public int[] OrdenaQuickSort(int[] valor, int primeiro, int ultimo)
+        private int[] OrdenaQuickSort(int[] valor, int primeiro, int ultimo)
         {
             int baixo, alto, meio, pivo, repositorio;
             baixo = primeiro;

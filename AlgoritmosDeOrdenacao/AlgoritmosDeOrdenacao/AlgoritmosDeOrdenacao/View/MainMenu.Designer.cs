@@ -38,7 +38,7 @@
             // BubbleSort
             // 
             this.BubbleSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.BubbleSort.Location = new System.Drawing.Point(54, 37);
+            this.BubbleSort.Location = new System.Drawing.Point(35, 37);
             this.BubbleSort.Name = "BubbleSort";
             this.BubbleSort.Size = new System.Drawing.Size(135, 45);
             this.BubbleSort.TabIndex = 0;
@@ -49,7 +49,7 @@
             // SelectionSort
             // 
             this.SelectionSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.SelectionSort.Location = new System.Drawing.Point(379, 37);
+            this.SelectionSort.Location = new System.Drawing.Point(392, 37);
             this.SelectionSort.Name = "SelectionSort";
             this.SelectionSort.Size = new System.Drawing.Size(135, 45);
             this.SelectionSort.TabIndex = 1;
@@ -60,7 +60,7 @@
             // InsertionSort
             // 
             this.InsertionSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.InsertionSort.Location = new System.Drawing.Point(54, 153);
+            this.InsertionSort.Location = new System.Drawing.Point(35, 153);
             this.InsertionSort.Name = "InsertionSort";
             this.InsertionSort.Size = new System.Drawing.Size(135, 45);
             this.InsertionSort.TabIndex = 2;
@@ -71,7 +71,7 @@
             // QuickSort
             // 
             this.QuickSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.QuickSort.Location = new System.Drawing.Point(379, 153);
+            this.QuickSort.Location = new System.Drawing.Point(392, 153);
             this.QuickSort.Name = "QuickSort";
             this.QuickSort.Size = new System.Drawing.Size(135, 45);
             this.QuickSort.TabIndex = 3;
@@ -82,7 +82,7 @@
             // MergeSort
             // 
             this.MergeSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.MergeSort.Location = new System.Drawing.Point(217, 240);
+            this.MergeSort.Location = new System.Drawing.Point(225, 246);
             this.MergeSort.Name = "MergeSort";
             this.MergeSort.Size = new System.Drawing.Size(135, 45);
             this.MergeSort.TabIndex = 4;
