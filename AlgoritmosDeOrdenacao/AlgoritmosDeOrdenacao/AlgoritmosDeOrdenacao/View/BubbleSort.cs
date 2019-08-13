@@ -42,7 +42,7 @@ namespace AlgoritmosDeOrdenacao.View
         {
             //Pega data de agora
             DateTime a = DateTime.Now;
-            long comparacoes = 0;
+            long Comparacoes = 0;
             //cria variavel para capturar quantidade de movimentos
             long Movimentos = 0;
 
@@ -51,6 +51,7 @@ namespace AlgoritmosDeOrdenacao.View
             {
                 //para o i menor que o tamanho - 1
                 for (int i = 0; i < n - 1; i++) {
+                    Comparacoes++;
                     //se o valor no index for maior que o valor no index + 1
                     if (valor[i] > valor[i + 1])
                         {

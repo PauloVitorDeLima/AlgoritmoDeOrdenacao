@@ -23,7 +23,7 @@ namespace AlgoritmosDeOrdenacao.View
             int[] valor = Array.ConvertAll(LerArquivo(caminho), s => int.Parse(s));
             
             //valor recebe os dados ja organizados
-            //valor = SelectionSort(valor, valor.Length);                                      //******* ADICIONAR ESSA LINHA VERIFICANDO A MANEIRA DE CRIAR O ALGORITMO
+            valor = OrdenaSelectionSort(valor, valor.Length);                                      //******* ADICIONAR ESSA LINHA VERIFICANDO A MANEIRA DE CRIAR O ALGORITMO
             
             //Apresenta os valores organizados no RichTxtBx
             for (int i = 0; i < valor.Length; i++)
@@ -35,18 +35,45 @@ namespace AlgoritmosDeOrdenacao.View
             //EscreverArquivo(caminho, valor);                                                 //******* ADICIONAR ESSA LINHA PARA ESCREVER NO ARQUIVO OS VALORES
         }
 
-        /*
-         
-            COLOCAR AQUI O CODIGO DO ALGORITMO!!
+        static int[] OrdenaSelectionSort(int[] valor, int n)
+        {
+            //Pega data de agora
+            DateTime a = DateTime.Now;
+            long Comparacoes = 0;
+            //cria variavel para capturar quantidade de movimentos
+            long Movimentos = 0;
+            int temp;
+            int flag;
 
-
-
-
-
-
-
-
-         */ 
+            for (int i = 1; i < n; i++) {
+                temp = valor[i];
+                flag = 0;
+                for (int j = i - 1; j >= 0 && flag != 1; ) {
+                    if (temp < valor[j])
+                    {
+                        valor[j + 1] = valor[j];
+                        j--;
+                        valor[j + 1] = temp;
+                        Movimentos++;
+                        Comparacoes++;
+                    }
+                    else
+                    {
+                        flag = 1;
+                        Comparacoes++;
+                    }
+                }
+            }
+            //Pega data de agora
+            DateTime b = DateTime.Now;
+            //apresenta em messageBox o tempo de duraçao da atividade
+            MessageBox.Show("Tempo de execucao: " + b.Subtract(a).TotalSeconds + " Segundos");
+            //Comparacoes realizadas ao total
+            MessageBox.Show("Quantidade de comparações: " + Comparacoes);
+            //apresenta em messageBox a quantidade de movimentos realizados
+            MessageBox.Show("Ocorreu um total de " + Movimentos + " Movimentos");
+            return valor;
+        }
 
 
         //Metodo de Escolher Arquivo

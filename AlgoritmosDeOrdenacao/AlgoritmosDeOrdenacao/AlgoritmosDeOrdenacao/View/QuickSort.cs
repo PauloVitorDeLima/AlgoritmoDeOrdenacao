@@ -21,10 +21,13 @@ namespace AlgoritmosDeOrdenacao.View
 
             //valor recebe os valores contidos no arquivo de texto que será lido
             int[] valor = Array.ConvertAll(LerArquivo(caminho), s => int.Parse(s));
-
+            //cria variavel para capturar quantidade de movimentos
+            long Movimentos = 0;
+            //Pega data de agora
+            DateTime a = DateTime.Now;
             //valor recebe os dados ja organizados
-            //valor = OrdenaQuickSort(valor, valor.Length);                                     //******* ADICIONAR ESSA LINHA VERIFICANDO A MANEIRA DE CRIAR O ALGORITMO
-
+            valor = OrdenaQuickSort(valor, 0, valor.Length - 1, a, Movimentos);                                     //******* ADICIONAR ESSA LINHA VERIFICANDO A MANEIRA DE CRIAR O ALGORITMO
+            
             //Apresenta os valores organizados no RichTxtBx
             for (int i = 0; i < valor.Length; i++)
             {
@@ -34,20 +37,50 @@ namespace AlgoritmosDeOrdenacao.View
             //chama metodo que sobrescreve o arquivo
             //EscreverArquivo(caminho, valor);                                                  //******* ADICIONAR ESSA LINHA PARA ESCREVER NO ARQUIVO OS VALORES
         }
+        static int[] OrdenaQuickSort(int[] valor, int primeiro, int ultimo, DateTime a, long movimentos)
+        {
+            int baixo, alto, meio, pivo, repositorio;
+            baixo = primeiro;
+            alto = ultimo;
+            meio = (int)((baixo + alto) / 2);
+            pivo = valor[meio];
 
-        /*
-
-
-
-
-
-
-
-
-
-        */
-
-
+            while (baixo <= alto)
+            {
+                while (valor[baixo] < pivo)
+                    baixo++;
+                while (valor[alto] > pivo)
+                    alto--;
+                if (baixo < alto)
+                {
+                    repositorio = valor[baixo];
+                    valor[baixo++] = valor[alto];
+                    valor[alto--] = repositorio;
+                    movimentos++;    
+                }
+                else if (baixo == alto)
+                    {
+                        movimentos++;
+                        baixo++;
+                        alto--;
+                    }
+                }
+                if (alto > primeiro)
+                {
+                    OrdenaQuickSort(valor, primeiro, alto, a, movimentos);
+                }else if (baixo < ultimo)
+                { 
+                    OrdenaQuickSort(valor, baixo, ultimo, a, movimentos);
+                }
+                
+                //Pega data de agora
+                DateTime b = DateTime.Now;
+                //apresenta em messageBox o tempo de duraçao da atividade
+                MessageBox.Show("Tempo de execucao: " + b.Subtract(a).TotalSeconds + " Segundos");
+                //apresenta em messageBox a quantidade de movimentos realizados
+                MessageBox.Show("Ocorreu um total de " + movimentos + " Movimentos");
+                return valor;
+        }
         //Metodo de Escolher Arquivo
         public String EscolherArquivo()
         {
