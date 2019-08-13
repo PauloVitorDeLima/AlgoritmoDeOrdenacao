@@ -18,10 +18,10 @@ namespace AlgoritmosDeOrdenacao.View
 
             //caminho recebe o local onde o usuario escolher o arquivo txt
             String caminho = EscolherArquivo();
-            
+
             //valor recebe os valores contidos no arquivo de texto que será lido
             int[] valor = Array.ConvertAll(LerArquivo(caminho), s => int.Parse(s));
-            
+
             //Pega data de agora
             DateTime a = DateTime.Now;
 
@@ -39,7 +39,7 @@ namespace AlgoritmosDeOrdenacao.View
 
 
             //Apresenta os valores organizados no RichTxtBx
-            for (int i = 0; i < valor.Length; i++) 
+            for (int i = 0; i < valor.Length; i++)
             {
                 RichTxtBxValores.AppendText(valor[i] + "\n");
             }
@@ -52,10 +52,12 @@ namespace AlgoritmosDeOrdenacao.View
             int temp;
             int flag;
 
-            for (int i = 1; i < n; i++) {
+            for (int i = 1; i < n; i++)
+            {
                 temp = valor[i];
                 flag = 0;
-                for (int j = i - 1; j >= 0 && flag != 1; ) {
+                for (int j = i - 1; j >= 0 && flag != 1;)
+                {
                     if (temp < valor[j])
                     {
                         valor[j + 1] = valor[j];
@@ -76,13 +78,13 @@ namespace AlgoritmosDeOrdenacao.View
         {
             //instancia o OpenFileDialog (File Explorer)
             OpenFileDialog dialog = new OpenFileDialog();
-            
+
             //Titulo do file explorer
             dialog.Title = "Arquivo de texto para ordenar";
-            
+
             //filtro de quais tipos de arquivos serao aceitos, no caso tudo que termine com .txt
             dialog.Filter = "Arquivos texto | *.txt";
-            
+
             //instancia o resultado da busca
             DialogResult resposta = dialog.ShowDialog();
 
@@ -90,10 +92,11 @@ namespace AlgoritmosDeOrdenacao.View
             if (resposta == DialogResult.OK)
             {
                 TxtPath.Text = dialog.FileName;
-            }   
+            }
             //retorna o caminho de texto mesmo se o resultado for nulo
             return TxtPath.Text;
         }
+
         //Metodo para ler conteudo do arquivo de texto
         public String[] LerArquivo(String caminho)
         {
@@ -104,14 +107,17 @@ namespace AlgoritmosDeOrdenacao.View
             //retorna o arquivo
             return arquivo;
         }
+        
         //Metodo para escrever no arquivo
         public void EscreverArquivo(String caminho, int[] valor)
         {
             //instancia para sobrescrever no arquivo selecionado
             StreamWriter writer = new StreamWriter(caminho, false);
+        
             //usando escrever
             using (writer)
-            {   
+            {
+            
                 //escreve todos os valores do Valor no arquivo
                 for (int i = 0; i < valor.Length; i++)
                 {
@@ -119,9 +125,9 @@ namespace AlgoritmosDeOrdenacao.View
                 }
             }
         }
+
         private void ButtonMenu_Click(object sender, EventArgs e)
         {
-            //retorna ao menu escondendo a tela na qual se encontra
             MainMenu menu = new MainMenu();
             menu.Show();
             Hide();

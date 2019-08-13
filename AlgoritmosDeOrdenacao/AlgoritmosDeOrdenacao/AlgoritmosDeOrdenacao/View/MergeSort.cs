@@ -95,7 +95,7 @@ namespace AlgoritmosDeOrdenacao.View
                 if (InicioArray[i] <= FimArray[j])
                 {
                     valor[k] = InicioArray[i];
-                    Movimentos++;
+
                     i++;
                 }
                 else
