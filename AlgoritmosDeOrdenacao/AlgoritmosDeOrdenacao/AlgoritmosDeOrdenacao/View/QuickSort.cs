@@ -10,6 +10,7 @@ namespace AlgoritmosDeOrdenacao.View
         {
             InitializeComponent();
         }
+        //cria variavel para capturar quantidade de movimentos
         long Movimentos = 0;
         private void SelectFile_Click(object sender, EventArgs e)
         {
@@ -21,17 +22,19 @@ namespace AlgoritmosDeOrdenacao.View
 
             //valor recebe os valores contidos no arquivo de texto que será lido
             int[] valor = Array.ConvertAll(LerArquivo(caminho), s => int.Parse(s));
-            //cria variavel para capturar quantidade de movimentos
-            
-            //Pega data de agora
-            DateTime a = DateTime.Now;
-            //valor recebe os dados ja organizados
-            valor = OrdenaQuickSort(valor, 0, valor.Length - 1);                                     //******* ADICIONAR ESSA LINHA VERIFICANDO A MANEIRA DE CRIAR O ALGORITMO
 
             //Pega data de agora
+            DateTime a = DateTime.Now;
+
+            //valor recebe os dados ja organizados
+            valor = OrdenaQuickSort(valor, 0, valor.Length - 1);                                     
+            
+            //Pega data de agora
             DateTime b = DateTime.Now;
+            
             //apresenta em messageBox o tempo de duraçao da atividade
             MessageBox.Show("Tempo de execucao: " + b.Subtract(a).TotalSeconds + " Segundos");
+            
             //apresenta em messageBox a quantidade de movimentos realizados
             MessageBox.Show("Ocorreu um total de " + Movimentos + " Movimentos");
 
@@ -46,41 +49,66 @@ namespace AlgoritmosDeOrdenacao.View
         }
         private int[] OrdenaQuickSort(int[] valor, int primeiro, int ultimo)
         {
-            int baixo, alto, meio, pivo, repositorio;
+            //Cria variaveis inteiras
+            int baixo, alto, meio, pivo, temp;
+            //variavel baixo recebe o primeiro index
             baixo = primeiro;
             alto = ultimo;
             meio = (int)((baixo + alto) / 2);
+            //divide por 2 para o pivo receber o valor do meio
             pivo = valor[meio];
-
+            //enquanto o baixo é menor ou igual ao alto
             while (baixo <= alto)
             {
+                //enquanto o valor no index baixo for menor que o pivo
                 while (valor[baixo] < pivo)
+                {
+                    //baixo incrementa
                     baixo++;
+                }
+                //enquanto valor no index alto for maior que o pivo
                 while (valor[alto] > pivo)
+                {
+                    //alto decrementa
                     alto--;
+                }
+                //se o alto for maior que o baixo
                 if (baixo < alto)
                 {
-                    repositorio = valor[baixo];
+                    //temporario recebe o valor no index baixo
+                    temp = valor[baixo];
+                    //valor no index baixo - 1 recebe o valor do index alto
                     valor[baixo++] = valor[alto];
-                    valor[alto--] = repositorio;
-                    Movimentos++;    
+                    //valor no index alto - 1 recebe o temporario
+                    valor[alto--] = temp;
+                    Movimentos++;
                 }
-                else if (baixo == alto)
+                //baixo for igual ao alto
+                else
+                {
+                    if (baixo == alto)
                     {
+                        //incremento e decremento
                         Movimentos++;
                         baixo++;
                         alto--;
                     }
                 }
-                if (alto > primeiro)
-                {
-                    OrdenaQuickSort(valor, primeiro, alto);
-                }else if (baixo < ultimo)
-                { 
-                    OrdenaQuickSort(valor, baixo, ultimo);
-                }
+            }
+            //alto for maior que o primeiro
+            if (alto > primeiro)
+            {
+                //chama novamente o metodo recursivo passando por parametro o valor, primeiro e alto
+                OrdenaQuickSort(valor, primeiro, alto);
+                //se o ultimo for maior que o baixo
+            }
+            if (baixo < ultimo)
+            { 
+                //chama novamente o metodo recursivo passando por parametro o valor, baixo e ultimo
+                OrdenaQuickSort(valor, baixo, ultimo);
+            }
                 
-                
+                //retorna o valor atualizado com as novas informações 
                 return valor;
         }
         //Metodo de Escolher Arquivo
@@ -139,6 +167,7 @@ namespace AlgoritmosDeOrdenacao.View
 
         private void ButtonMenu_Click(object sender, EventArgs e)
         {
+            //retorna ao menu escondendo a tela na qual se encontra
             MainMenu menu = new MainMenu();
             menu.Show();
             Hide();

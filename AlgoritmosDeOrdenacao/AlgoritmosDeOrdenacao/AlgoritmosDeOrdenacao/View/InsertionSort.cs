@@ -10,19 +10,31 @@ namespace AlgoritmosDeOrdenacao.View
         {
             InitializeComponent();
         }
-
+        long Movimentos = 0;
         private void SelectFile_Click(object sender, EventArgs e)
         {   
             //Limpa RichTxtBx
             RichTxtBxValores.Clear(); 
+            
             //caminho recebe o local onde o usuario escolher o arquivo txt
             String caminho = EscolherArquivo();
+            
             //valor recebe os valores contidos no arquivo de texto que será lido
             int[] valor = Array.ConvertAll(LerArquivo(caminho), s => int.Parse(s));
+
+            //Pega data de agora
+            DateTime a = DateTime.Now;
+
             //valor recebe os dados ja organizados
-           
-            //Console.WriteLine();
             valor = OrdenaInsertionSort(valor, valor.Length);
+
+            //Pega data de agora
+            DateTime b = DateTime.Now;
+            //apresenta em messageBox o tempo de duraçao da atividade
+            MessageBox.Show("Tempo de execucao: " + b.Subtract(a).TotalSeconds + " Segundos");
+            //apresenta em messageBox a quantidade de movimentos realizados
+            MessageBox.Show("Ocorreu um total de " + Movimentos + " Movimentos");
+
             //Apresenta os valores organizados no RichTxtBx
             for (int i = 0; i < valor.Length; i++)
             {
@@ -32,17 +44,13 @@ namespace AlgoritmosDeOrdenacao.View
             //chama metodo que sobrescreve o arquivo
             //EscreverArquivo(caminho, valor);                                                 //******* ADICIONAR ESSA LINHA PARA ESCREVER NO ARQUIVO OS VALORES
 
-
-
         }
         //Metodo para ordernar com Insertion
-        static int[] OrdenaInsertionSort(int[] valor, int n)
+        public int[] OrdenaInsertionSort(int[] valor, int n)
         {
-            //Pega data de agora
-            DateTime a = DateTime.Now;
+            
             //Cria variavel temporaria, uma Flag e uma para marcar os movimentos
             int Temp, Flag; 
-            long Movimentos = 0;
             //para o i = 1 for menor que o tamanho do array 
             for (int i = 1; i < n; i++)
             {
@@ -70,12 +78,6 @@ namespace AlgoritmosDeOrdenacao.View
                     }
                 }
             }
-            //Pega data de agora
-            DateTime b = DateTime.Now;
-            //apresenta em messageBox o tempo de duraçao da atividade
-            MessageBox.Show("Tempo de execucao: " + b.Subtract(a).TotalSeconds + " Segundos");
-            //apresenta em messageBox a quantidade de movimentos realizados
-            MessageBox.Show("Ocorreu um total de " + Movimentos + " Movimentos");
             return valor;
         }
 
@@ -121,9 +123,9 @@ namespace AlgoritmosDeOrdenacao.View
                 }
             }
         }
-
         private void ButtonMenu_Click(object sender, EventArgs e)
         {
+            //retorna ao menu escondendo a tela na qual se encontra
             MainMenu menu = new MainMenu();
             menu.Show();
             Hide();

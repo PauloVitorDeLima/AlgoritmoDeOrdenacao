@@ -10,7 +10,7 @@ namespace AlgoritmosDeOrdenacao.View
         {
             InitializeComponent();
         }
-
+        long Movimentos = 0;
         private void SelectFile_Click(object sender, EventArgs e)
         {
             //Limpa RichTxtBx 
@@ -22,11 +22,24 @@ namespace AlgoritmosDeOrdenacao.View
             //valor recebe os valores contidos no arquivo de texto que será lido
             int[] valor = Array.ConvertAll(LerArquivo(caminho), s => int.Parse(s));
             
+            //Pega data de agora
+            DateTime a = DateTime.Now;
+
             //valor recebe os dados ja organizados
             valor = OrdenaSelectionSort(valor, valor.Length);                                      //******* ADICIONAR ESSA LINHA VERIFICANDO A MANEIRA DE CRIAR O ALGORITMO
 
+            //Pega data de agora
+            DateTime b = DateTime.Now;
+
+            //apresenta em messageBox o tempo de duraçao da atividade
+            MessageBox.Show("Tempo de execucao: " + b.Subtract(a).TotalSeconds + " Segundos");
+
+            //apresenta em messageBox a quantidade de movimentos realizados
+            MessageBox.Show("Ocorreu um total de " + Movimentos + " Movimentos");
+
+
             //Apresenta os valores organizados no RichTxtBx
-            for (int i = 0; i < valor.Length; i++)
+            for (int i = 0; i < valor.Length; i++) 
             {
                 RichTxtBxValores.AppendText(valor[i] + "\n");
             }
@@ -34,13 +47,8 @@ namespace AlgoritmosDeOrdenacao.View
             //EscreverArquivo(caminho, valor);                                                 //******* ADICIONAR ESSA LINHA PARA ESCREVER NO ARQUIVO OS VALORES
         }
 
-        static int[] OrdenaSelectionSort(int[] valor, int n)
+        private int[] OrdenaSelectionSort(int[] valor, int n)
         {
-            //Pega data de agora
-            DateTime a = DateTime.Now;
-            long Comparacoes = 0;
-            //cria variavel para capturar quantidade de movimentos
-            long Movimentos = 0;
             int temp;
             int flag;
 
@@ -54,27 +62,15 @@ namespace AlgoritmosDeOrdenacao.View
                         j--;
                         valor[j + 1] = temp;
                         Movimentos++;
-                        Comparacoes++;
                     }
                     else
                     {
                         flag = 1;
-                        Comparacoes++;
                     }
                 }
             }
-            //Pega data de agora
-            DateTime b = DateTime.Now;
-            //apresenta em messageBox o tempo de duraçao da atividade
-            MessageBox.Show("Tempo de execucao: " + b.Subtract(a).TotalSeconds + " Segundos");
-            //Comparacoes realizadas ao total
-            MessageBox.Show("Quantidade de comparações: " + Comparacoes);
-            //apresenta em messageBox a quantidade de movimentos realizados
-            MessageBox.Show("Ocorreu um total de " + Movimentos + " Movimentos");
             return valor;
         }
-
-
         //Metodo de Escolher Arquivo
         public String EscolherArquivo()
         {
@@ -89,17 +85,15 @@ namespace AlgoritmosDeOrdenacao.View
             
             //instancia o resultado da busca
             DialogResult resposta = dialog.ShowDialog();
-            
+
             //se a busca for realizada escreve o caminho no campo de texto
             if (resposta == DialogResult.OK)
             {
                 TxtPath.Text = dialog.FileName;
-            }
-            
+            }   
             //retorna o caminho de texto mesmo se o resultado for nulo
             return TxtPath.Text;
         }
-        
         //Metodo para ler conteudo do arquivo de texto
         public String[] LerArquivo(String caminho)
         {
@@ -110,17 +104,14 @@ namespace AlgoritmosDeOrdenacao.View
             //retorna o arquivo
             return arquivo;
         }
-        
         //Metodo para escrever no arquivo
         public void EscreverArquivo(String caminho, int[] valor)
         {
             //instancia para sobrescrever no arquivo selecionado
             StreamWriter writer = new StreamWriter(caminho, false);
-        
             //usando escrever
             using (writer)
-            {
-            
+            {   
                 //escreve todos os valores do Valor no arquivo
                 for (int i = 0; i < valor.Length; i++)
                 {
@@ -128,9 +119,9 @@ namespace AlgoritmosDeOrdenacao.View
                 }
             }
         }
-
         private void ButtonMenu_Click(object sender, EventArgs e)
         {
+            //retorna ao menu escondendo a tela na qual se encontra
             MainMenu menu = new MainMenu();
             menu.Show();
             Hide();

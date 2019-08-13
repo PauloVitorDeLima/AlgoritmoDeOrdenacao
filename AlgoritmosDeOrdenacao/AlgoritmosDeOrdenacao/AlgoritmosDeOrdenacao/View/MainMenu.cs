@@ -20,11 +20,9 @@ namespace AlgoritmosDeOrdenacao
 
         private void BubbleSort_Click(object sender, EventArgs e)
         {
-
             BubbleSort bubble = new BubbleSort();
             bubble.Show();
             Hide();
-
         }
 
         private void SelectionSort_Click(object sender, EventArgs e)
@@ -32,16 +30,13 @@ namespace AlgoritmosDeOrdenacao
             SelectionSort selection = new SelectionSort(); 
             selection.Show();
             Hide();
-
         }
-
 
         private void QuickSort_Click(object sender, EventArgs e)
         {
             QuickSort quick = new QuickSort();
             quick.Show();
             Hide();
-
         }
 
         private void InsertionSort_Click(object sender, EventArgs e)

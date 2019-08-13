@@ -10,7 +10,7 @@ namespace AlgoritmosDeOrdenacao.View
         {
             InitializeComponent();
         }
-
+        long Movimentos = 0;
         private void SelectFile_Click(object sender, EventArgs e)
         {   
             //Limpa RichTxtBx
@@ -19,9 +19,22 @@ namespace AlgoritmosDeOrdenacao.View
             String caminho = EscolherArquivo();
             //valor recebe os valores contidos no arquivo de texto que será lido
             int[] valor = Array.ConvertAll(LerArquivo(caminho), s => int.Parse(s));
-            //metodo que organiza os dados
 
+            //Pega data de agora
+            DateTime a = DateTime.Now;
+
+            //valor recebe o metodo que organiza os dados
             valor = OrdenaMergeSort(valor, valor.Length);
+
+            //Pega data de agora
+            DateTime b = DateTime.Now;
+
+            //apresenta em messageBox o tempo de duraçao da atividade
+            MessageBox.Show("Tempo de execucao: " + b.Subtract(a).TotalSeconds + " Segundos");
+
+            //apresenta em messageBox a quantidade de movimentos realizados
+            MessageBox.Show("Ocorreu um total de " + Movimentos + " Movimentos");
+
 
             //Apresenta os valores organizados no RichTxtBx
             for (int i = 0; i < valor.Length; i++)
@@ -30,14 +43,10 @@ namespace AlgoritmosDeOrdenacao.View
             }
             //adicionar para sobrescrever arquivo
             //EscreverArquivo(caminho, valor);                                                 //******* ADICIONAR ESSA LINHA PARA ESCREVER NO ARQUIVO OS VALORES
-
-
         }
         //Metodo para ordernar com Merge
-        public int[] OrdenaMergeSort(int[] valor, int n)
+        private int[] OrdenaMergeSort(int[] valor, int n)
         {
-            long Movimentos = 0;
-            DateTime a = DateTime.Now;
 
             int TamAtual;
             int inicio;
@@ -52,15 +61,8 @@ namespace AlgoritmosDeOrdenacao.View
                     int fim = Math.Min(inicio + 2 * TamAtual - 1, n - 1);
                     
                     OrdenaMergePrincipal(valor, inicio, meio, fim);
-                    Movimentos++;
                 };
             }
-            //Pega data de agora
-            DateTime b = DateTime.Now;
-            //apresenta em messageBox o tempo de duraçao da atividade
-            MessageBox.Show("Tempo de execucao: " + b.Subtract(a).TotalSeconds + " Segundos");
-            //apresenta em messageBox a quantidade de movimentos realizados
-            MessageBox.Show("Ocorreu um total de " + Movimentos + " Movimentos");
             return valor;
         }
 
@@ -93,11 +95,13 @@ namespace AlgoritmosDeOrdenacao.View
                 if (InicioArray[i] <= FimArray[j])
                 {
                     valor[k] = InicioArray[i];
+                    Movimentos++;
                     i++;
                 }
                 else
                 {
                     valor[k] = FimArray[j];
+                    Movimentos++;
                     j++;
                 }
                 k++;
@@ -106,12 +110,14 @@ namespace AlgoritmosDeOrdenacao.View
             while (i < n1)
             {
                 valor[k] = InicioArray[i];
+                Movimentos++;
                 i++;
                 k++;
             }
             while (j < n2)
             {
                 valor[k] = FimArray[j];
+                Movimentos++;
                 j++;
                 k++;
             }
