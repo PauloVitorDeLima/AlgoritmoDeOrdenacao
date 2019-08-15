@@ -37,7 +37,7 @@
             // 
             // BubbleSort
             // 
-            this.BubbleSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.BubbleSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BubbleSort.Location = new System.Drawing.Point(35, 37);
             this.BubbleSort.Name = "BubbleSort";
             this.BubbleSort.Size = new System.Drawing.Size(135, 45);
@@ -48,7 +48,7 @@
             // 
             // SelectionSort
             // 
-            this.SelectionSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.SelectionSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SelectionSort.Location = new System.Drawing.Point(392, 37);
             this.SelectionSort.Name = "SelectionSort";
             this.SelectionSort.Size = new System.Drawing.Size(135, 45);
@@ -59,7 +59,7 @@
             // 
             // InsertionSort
             // 
-            this.InsertionSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.InsertionSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InsertionSort.Location = new System.Drawing.Point(35, 153);
             this.InsertionSort.Name = "InsertionSort";
             this.InsertionSort.Size = new System.Drawing.Size(135, 45);
@@ -70,7 +70,7 @@
             // 
             // QuickSort
             // 
-            this.QuickSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.QuickSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.QuickSort.Location = new System.Drawing.Point(392, 153);
             this.QuickSort.Name = "QuickSort";
             this.QuickSort.Size = new System.Drawing.Size(135, 45);
@@ -81,7 +81,7 @@
             // 
             // MergeSort
             // 
-            this.MergeSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.MergeSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MergeSort.Location = new System.Drawing.Point(225, 246);
             this.MergeSort.Name = "MergeSort";
             this.MergeSort.Size = new System.Drawing.Size(135, 45);

@@ -42,37 +42,43 @@ namespace AlgoritmosDeOrdenacao.View
 
             //Limpa RichTxtBx
             RichTxtBxValores.Clear();
-
-            int UmDecimo = (int)(valor.Length / 10);
-            int Metade = (int)(valor.Length / 2);
-            //meio = (int)((baixo + alto) / 2);
+            int PrimeiraParte;
+            int SegundaParte;
+            if (valor.Length > 100000)
+            {
+                PrimeiraParte = (int)(valor.Length / 1000);
+                SegundaParte = (int)(valor.Length / 100);
+            }
+            else
+            {
+                PrimeiraParte = (int)(valor.Length / 10);
+                SegundaParte = (int)(valor.Length / 2);
+            }
             //Apresenta os valores organizados no RichTxtBx
-            for (int i = 0; i < UmDecimo; i++)
+            for (int i = 0; i < PrimeiraParte; i++)
             {
                 Application.DoEvents();
                 RichTxtBxValores.AppendText(valor[i] + "\n");
             }
-            DialogResult continuarMetade = MessageBox.Show("Foi feito 1 décimo do tamanho total, Deseja continuar até a metade?", "Continuar",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            DialogResult continuarMetade = MessageBox.Show("Foi a Primeira parte do arquivo, Deseja continuar?", "Continuar",
+                 MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
             if (continuarMetade.ToString().ToUpper() == "YES")
             {
-                for (int i = UmDecimo; i < Metade; i++)
+                for (int i = PrimeiraParte; i < SegundaParte; i++)
                 {
                     Application.DoEvents();
                     RichTxtBxValores.AppendText(valor[i] + "\n");
                 }
-                DialogResult continuarFinal = MessageBox.Show("Foi feito até a metade, Deseja continuar até o Final?", "Continuar",
+                DialogResult continuarFinal = MessageBox.Show("Foi a Segunda parte do arquivo, Deseja continuar até o Final?", "Continuar",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
                 if (continuarFinal.ToString().ToUpper() == "YES")
                 {
-                    for (int i = Metade; i < valor.Length; i++)
+                    for (int i = SegundaParte; i < valor.Length; i++)
                     {
                         Application.DoEvents();
                         RichTxtBxValores.AppendText(valor[i] + "\n");
                     }
-
                 }
-
             }
             //desativa a ação do botão para aguardar o fim do processo
             ButtonMenu.Enabled = true;

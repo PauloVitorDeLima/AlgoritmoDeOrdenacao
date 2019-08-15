@@ -36,6 +36,8 @@
             // 
             // SelectFile
             // 
+            this.SelectFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectFile.ForeColor = System.Drawing.SystemColors.ControlText;
             this.SelectFile.Location = new System.Drawing.Point(12, 12);
             this.SelectFile.Name = "SelectFile";
             this.SelectFile.Size = new System.Drawing.Size(148, 44);
@@ -54,6 +56,7 @@
             // 
             // RichTxtBxValores
             // 
+            this.RichTxtBxValores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RichTxtBxValores.Location = new System.Drawing.Point(12, 110);
             this.RichTxtBxValores.Name = "RichTxtBxValores";
             this.RichTxtBxValores.Size = new System.Drawing.Size(532, 341);
@@ -62,6 +65,7 @@
             // 
             // ButtonMenu
             // 
+            this.ButtonMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonMenu.Location = new System.Drawing.Point(396, 12);
             this.ButtonMenu.Name = "ButtonMenu";
             this.ButtonMenu.Size = new System.Drawing.Size(148, 44);
