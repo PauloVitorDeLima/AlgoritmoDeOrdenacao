@@ -21,10 +21,12 @@ namespace AlgoritmosDeOrdenacao.View
         {
             //Limpa RichTxtBx
             RichTxtBxValores.Clear();
-               
+            //botao desativado
+            ButtonMenu.Enabled = false;
+
             //caminho recebe o local onde o usuario escolher o arquivo txt
-            String caminho = EscolherArquivo(); 
-             
+            String caminho = EscolherArquivo();
+
             //valor recebe os valores contidos no arquivo de texto que será lido
             int[] valor = Array.ConvertAll(LerArquivo(caminho), s => int.Parse(s));
 
@@ -41,11 +43,41 @@ namespace AlgoritmosDeOrdenacao.View
             //apresenta em messageBox a quantidade de movimentos realizados
             MessageBox.Show("Ocorreu um total de " + Movimentos + " Movimentos");
 
+            //Botao ativado
+            int UmDecimo = (int)(valor.Length / 10);
+            int Metade = (int)(valor.Length / 2);
+            //meio = (int)((baixo + alto) / 2);
             //Apresenta os valores organizados no RichTxtBx
-            for (int i = 0; i < valor.Length; i++)
+            for (int i = 0; i < UmDecimo; i++)
             {
+                Application.DoEvents();
                 RichTxtBxValores.AppendText(valor[i] + "\n");
             }
+            DialogResult continuarMetade = MessageBox.Show("Foi feito 1 décimo do tamanho total, Deseja continuar até a metade?", "Continuar",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            if (continuarMetade.ToString().ToUpper() == "YES")
+            {
+                for (int i = UmDecimo; i < Metade; i++)
+                {
+                    Application.DoEvents();
+                    RichTxtBxValores.AppendText(valor[i] + "\n");
+                }
+                DialogResult continuarFinal = MessageBox.Show("Foi feito até a metade, Deseja continuar até o Final?", "Continuar",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                if (continuarFinal.ToString().ToUpper() == "YES")
+                {
+                    for (int i = Metade; i < valor.Length; i++)
+                    {
+                        Application.DoEvents();
+                        RichTxtBxValores.AppendText(valor[i] + "\n");
+                    }
+
+                }
+
+            }
+            //desativa a ação do botão para aguardar o fim do processo
+            ButtonMenu.Enabled = true;
+
 
             //adicionar para sobrescrever arquivo
             //EscreverArquivo(caminho, valor);                                                  //******* ADICIONAR ESSA LINHA PARA ESCREVER NO ARQUIVO OS VALORES
@@ -69,6 +101,7 @@ namespace AlgoritmosDeOrdenacao.View
                         //e o valor do index + 1 recebe o numero temporario
                         valor[i + 1] = temporario;
                         //conta que ocorreu uma movimentacao
+                        //Application.DoEvents();
                         Movimentos++;
                     }
                 }

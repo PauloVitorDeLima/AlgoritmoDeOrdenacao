@@ -15,6 +15,10 @@ namespace AlgoritmosDeOrdenacao.View
         {   
             //Limpa RichTxtBx
             RichTxtBxValores.Clear();
+            //desativa a ação do botão para aguardar o fim do processo
+            ButtonMenu.Enabled = false;
+            //Alerta que a ordenacao esta ocorrendo
+            RichTxtBxValores.AppendText("\n A Ordenação está sendo realizada, por favor aguarde!!");
             //caminho recebe o local onde o usuario escolher o arquivo txt
             String caminho = EscolherArquivo();
             //valor recebe os valores contidos no arquivo de texto que será lido
@@ -23,7 +27,6 @@ namespace AlgoritmosDeOrdenacao.View
             //Pega data de agora
             DateTime a = DateTime.Now;
 
-            //valor recebe o metodo que organiza os dados
             valor = OrdenaMergeSort(valor, valor.Length);
 
             //Pega data de agora
@@ -35,12 +38,43 @@ namespace AlgoritmosDeOrdenacao.View
             //apresenta em messageBox a quantidade de movimentos realizados
             MessageBox.Show("Ocorreu um total de " + Movimentos + " Movimentos");
 
+            //Limpa RichTxtBx
+            RichTxtBxValores.Clear();
 
+            int UmDecimo = (int)(valor.Length / 10);
+            int Metade = (int)(valor.Length / 2);
+            //meio = (int)((baixo + alto) / 2);
             //Apresenta os valores organizados no RichTxtBx
-            for (int i = 0; i < valor.Length; i++)
+            for (int i = 0; i < UmDecimo; i++)
             {
+                Application.DoEvents();
                 RichTxtBxValores.AppendText(valor[i] + "\n");
             }
+            DialogResult continuarMetade = MessageBox.Show("Foi feito 1 décimo do tamanho total, Deseja continuar até a metade?", "Continuar",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            if (continuarMetade.ToString().ToUpper() == "YES")
+            {
+                for (int i = UmDecimo; i < Metade; i++)
+                {
+                    Application.DoEvents();
+                    RichTxtBxValores.AppendText(valor[i] + "\n");
+                }
+                DialogResult continuarFinal = MessageBox.Show("Foi feito até a metade, Deseja continuar até o Final?", "Continuar",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                if (continuarFinal.ToString().ToUpper() == "YES")
+                {
+                    for (int i = Metade; i < valor.Length; i++)
+                    {
+                        Application.DoEvents();
+                        RichTxtBxValores.AppendText(valor[i] + "\n");
+                    }
+
+                }
+
+            }
+            //desativa a ação do botão para aguardar o fim do processo
+            ButtonMenu.Enabled = true;
+
             //adicionar para sobrescrever arquivo
             //EscreverArquivo(caminho, valor);                                                 //******* ADICIONAR ESSA LINHA PARA ESCREVER NO ARQUIVO OS VALORES
         }
@@ -101,6 +135,7 @@ namespace AlgoritmosDeOrdenacao.View
                 else
                 {
                     valor[k] = FimArray[j];
+                    //Application.DoEvents();
                     Movimentos++;
                     j++;
                 }
@@ -110,6 +145,7 @@ namespace AlgoritmosDeOrdenacao.View
             while (i < n1)
             {
                 valor[k] = InicioArray[i];
+               // Application.DoEvents();
                 Movimentos++;
                 i++;
                 k++;
@@ -117,6 +153,7 @@ namespace AlgoritmosDeOrdenacao.View
             while (j < n2)
             {
                 valor[k] = FimArray[j];
+                //Application.DoEvents();
                 Movimentos++;
                 j++;
                 k++;
