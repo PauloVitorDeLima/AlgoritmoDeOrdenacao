@@ -18,17 +18,17 @@ namespace AlgoritmosDeOrdenacao.View
             RichTxtBxValores.Clear();
             //desativa a ação do botão para aguardar o fim do processo
             ButtonMenu.Enabled = false;
-            //Alerta que a ordenacao esta ocorrendo
-            RichTxtBxValores.AppendText("\n A Ordenação está sendo realizada, por favor aguarde!!");
+            
             //caminho recebe o local onde o usuario escolher o arquivo txt
             String caminho = EscolherArquivo();
 
             try
             {
 
-            
-            //valor recebe os valores contidos no arquivo de texto que será lido
-            int[] valor = Array.ConvertAll(LerArquivo(caminho), s => int.Parse(s));
+                //Alerta que a ordenacao esta ocorrendo
+                RichTxtBxValores.AppendText("\n A Ordenação está sendo realizada, por favor aguarde!!");
+                //valor recebe os valores contidos no arquivo de texto que será lido
+                int[] valor = Array.ConvertAll(LerArquivo(caminho), s => int.Parse(s));
 
             //Pega data de agora
             DateTime a = DateTime.Now;
