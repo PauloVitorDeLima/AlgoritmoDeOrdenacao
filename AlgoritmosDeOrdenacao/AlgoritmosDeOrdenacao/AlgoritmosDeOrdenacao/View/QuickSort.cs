@@ -23,6 +23,10 @@ namespace AlgoritmosDeOrdenacao.View
             //caminho recebe o local onde o usuario escolher o arquivo txt
             String caminho = EscolherArquivo();
 
+            try
+            {
+
+            
             //valor recebe os valores contidos no arquivo de texto que será lido
             int[] valor = Array.ConvertAll(LerArquivo(caminho), s => int.Parse(s));
 
@@ -82,11 +86,16 @@ namespace AlgoritmosDeOrdenacao.View
                 }
 
             }
+                valor = null;
+                //adicionar para sobrescrever arquivo
+                //EscreverArquivo(caminho, valor);                                                 //******* ADICIONAR ESSA LINHA PARA ESCREVER NO ARQUIVO OS VALORES
+            }
+            catch (Exception ex)
+            {
+
+            }
             //desativa a ação do botão para aguardar o fim do processo
             ButtonMenu.Enabled = true;
-
-            //chama metodo que sobrescreve o arquivo
-            //EscreverArquivo(caminho, valor);                                                  //******* ADICIONAR ESSA LINHA PARA ESCREVER NO ARQUIVO OS VALORES
         }
         private int[] OrdenaQuickSort(int[] valor, int primeiro, int ultimo)
         {
@@ -214,6 +223,11 @@ namespace AlgoritmosDeOrdenacao.View
             MainMenu menu = new MainMenu();
             menu.Show();
             Hide();
+        }
+
+        private void RichTxtBxValores_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

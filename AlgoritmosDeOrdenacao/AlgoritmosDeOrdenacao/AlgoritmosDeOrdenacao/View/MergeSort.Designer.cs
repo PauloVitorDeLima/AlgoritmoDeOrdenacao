@@ -42,6 +42,7 @@
             this.RichTxtBxValores.Size = new System.Drawing.Size(532, 341);
             this.RichTxtBxValores.TabIndex = 6;
             this.RichTxtBxValores.Text = "";
+            this.RichTxtBxValores.TextChanged += new System.EventHandler(this.RichTxtBxValores_TextChanged);
             // 
             // TxtPath
             // 

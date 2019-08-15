@@ -26,73 +26,77 @@ namespace AlgoritmosDeOrdenacao.View
 
             //caminho recebe o local onde o usuario escolher o arquivo txt
             String caminho = EscolherArquivo();
-
-            //valor recebe os valores contidos no arquivo de texto que será lido
-            int[] valor = Array.ConvertAll(LerArquivo(caminho), s => int.Parse(s));
-
-            //Pega data de agora
-            DateTime a = DateTime.Now;
-
-            //metodo que organiza os dados
-            valor = OrdenaBubbleSort(valor, valor.Length);
-
-            //Pega data de agora
-            DateTime b = DateTime.Now;
-            //apresenta em messageBox o tempo de duraçao da atividade
-            MessageBox.Show("Tempo de execucao: " + b.Subtract(a).TotalSeconds + " Segundos");
-            //apresenta em messageBox a quantidade de movimentos realizados
-            MessageBox.Show("Ocorreu um total de " + Movimentos + " Movimentos");
-
-            RichTxtBxValores.Clear();
-            int PrimeiraParte;
-            int SegundaParte;
-            if (valor.Length > 100000)
+            try
             {
-                PrimeiraParte = (int)(valor.Length / 1000);
-                SegundaParte = (int)(valor.Length / 100);
-            }
-            else
-            {
-                PrimeiraParte = (int)(valor.Length / 10);
-                SegundaParte = (int)(valor.Length / 2);
-            }
-            //Apresenta os valores organizados no RichTxtBx
-            for (int i = 0; i < PrimeiraParte; i++)
-            {
-                Application.DoEvents();
-                RichTxtBxValores.AppendText(valor[i] + "\n");
-            }
+                //valor recebe os valores contidos no arquivo de texto que será lido
+                int[] valor = Array.ConvertAll(LerArquivo(caminho), s => int.Parse(s));
 
-            DialogResult continuarMetade = MessageBox.Show("Foi a Primeira parte do arquivo, Deseja continuar?", "Continuar",
-                 MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
-            if (continuarMetade.ToString().ToUpper() == "YES")
-            {
-                for (int i = PrimeiraParte; i < SegundaParte; i++)
+                //Pega data de agora
+                DateTime a = DateTime.Now;
+
+                //metodo que organiza os dados
+                valor = OrdenaBubbleSort(valor, valor.Length);
+
+                //Pega data de agora
+                DateTime b = DateTime.Now;
+                //apresenta em messageBox o tempo de duraçao da atividade
+                MessageBox.Show("Tempo de execucao: " + b.Subtract(a).TotalSeconds + " Segundos");
+                //apresenta em messageBox a quantidade de movimentos realizados
+                MessageBox.Show("Ocorreu um total de " + Movimentos + " Movimentos");
+
+                RichTxtBxValores.Clear();
+                int PrimeiraParte;
+                int SegundaParte;
+                if (valor.Length > 100000)
+                {
+                    PrimeiraParte = (int)(valor.Length / 1000);
+                    SegundaParte = (int)(valor.Length / 100);
+                }
+                else
+                {
+                    PrimeiraParte = (int)(valor.Length / 10);
+                    SegundaParte = (int)(valor.Length / 2);
+                }
+                //Apresenta os valores organizados no RichTxtBx
+                for (int i = 0; i < PrimeiraParte; i++)
                 {
                     Application.DoEvents();
                     RichTxtBxValores.AppendText(valor[i] + "\n");
                 }
-                DialogResult continuarFinal = MessageBox.Show("Foi a Segunda parte do arquivo, Deseja continuar até o Final?", "Continuar",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
-                if (continuarFinal.ToString().ToUpper() == "YES")
+
+                DialogResult continuarMetade = MessageBox.Show("Foi a Primeira parte do arquivo, Deseja continuar?", "Continuar",
+                     MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                if (continuarMetade.ToString().ToUpper() == "YES")
                 {
-                    for (int i = SegundaParte; i < valor.Length; i++)
+                    for (int i = PrimeiraParte; i < SegundaParte; i++)
                     {
                         Application.DoEvents();
                         RichTxtBxValores.AppendText(valor[i] + "\n");
                     }
+                    DialogResult continuarFinal = MessageBox.Show("Foi a Segunda parte do arquivo, Deseja continuar até o Final?", "Continuar",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                    if (continuarFinal.ToString().ToUpper() == "YES")
+                    {
+                        for (int i = SegundaParte; i < valor.Length; i++)
+                        {
+                            Application.DoEvents();
+                            RichTxtBxValores.AppendText(valor[i] + "\n");
+                        }
+
+                    }
 
                 }
+                valor = null;
+                //adicionar para sobrescrever arquivo
+                //EscreverArquivo(caminho, valor);                                                 //******* ADICIONAR ESSA LINHA PARA ESCREVER NO ARQUIVO OS VALORES
+            }
+            catch (Exception ex)
+            {
 
             }
-            //desativa a ação do botão para aguardar o fim do processo
+            //ativa a ação do botão 
             ButtonMenu.Enabled = true;
-
-
-            //adicionar para sobrescrever arquivo
-            //EscreverArquivo(caminho, valor);                                                  //******* ADICIONAR ESSA LINHA PARA ESCREVER NO ARQUIVO OS VALORES
         }
-
         //Metodo para ordernar com Bubble
         private int[] OrdenaBubbleSort(int[] valor, int n)
         {
